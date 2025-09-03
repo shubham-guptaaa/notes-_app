@@ -13,27 +13,27 @@ export default function Notes() {
 
   // Fetch notes from backend
   const loadNotes = async () => {
-    const result = await axios.get("http://localhost:8080/notes");
+    const result = await axios.get("https://notes-backend-ih4c.onrender.com/notes");
     setNotes(result.data);
   };
 
   // Add note
   const addNote = async () => {
     if (!newNote.trim()) return;
-    await axios.post("http://localhost:8080/notes", { content: newNote });
+    await axios.post("https://notes-backend-ih4c.onrender.com/notes", { content: newNote });
     setNewNote("");
     loadNotes();
   };
 
   // Delete note
   const deleteNote = async (id) => {
-    await axios.delete(`http://localhost:8080/notes/${id}`);
+    await axios.delete(`https://notes-backend-ih4c.onrender.com/notes/${id}`);
     loadNotes();
   };
 
   // Update note
   const updateNote = async (id) => {
-    await axios.put(`http://localhost:8080/notes/${id}`, { content: editText });
+    await axios.put(`https://notes-backend-ih4c.onrender.com/notes/${id}`, { content: editText });
     setEditingId(null);
     setEditText("");
     loadNotes();
