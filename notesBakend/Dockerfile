@@ -7,8 +7,8 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run
-FROM openjdk:21.0.1-jdk-slim
+FROM eclipse-temurin:21-jre
 WORKDIR /app
-COPY --from=build /app/target/notesFrontend-0.0.1-SNAPSHOT.jar notesFrontend.jar
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "notesFrontend.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
