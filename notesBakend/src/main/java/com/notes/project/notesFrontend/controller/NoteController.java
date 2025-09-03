@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/notes")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://notes-app-pied-theta.vercel.app")
 public class NoteController {
 
     @Autowired
